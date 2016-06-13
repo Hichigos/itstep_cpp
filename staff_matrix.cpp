@@ -52,11 +52,11 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		RealMatrix temp(hei, len);
+		RealMatrix new_obj(hei, len);
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp.arr[i][j] = arr[i][j] + obj.arr[i][j];
-		return temp;
+				new_obj.arr[i][j] = arr[i][j] + obj.arr[i][j];
+		return new_obj;
 	}
 
 	RealMatrix operator+=(const RealMatrix& obj)
@@ -66,16 +66,16 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		double** temp = new double*[hei];
+		double** new_arr = new double*[hei];
 		for (int i = 0; i < hei; ++i)
-			temp[i] = new double[len];
+			new_arr[i] = new double[len];
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp[i][j] = arr[i][j] + obj.arr[i][j];
+				new_arr[i][j] = arr[i][j] + obj.arr[i][j];
 		for (int i = 0; i < N; ++i)
 			delete[] arr[i];
 		delete[] arr;
-		arr = temp;
+		arr = new_arr;
 		return *this;
 	}
 
@@ -86,11 +86,11 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		RealMatrix temp(hei, len);
+		RealMatrix new_obj(hei, len);
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp.arr[i][j] = arr[i][j] - obj.arr[i][j];
-		return temp;
+				new_obj.arr[i][j] = arr[i][j] - obj.arr[i][j];
+		return new_obj;
 	}
 
 	RealMatrix operator-=(const RealMatrix& obj)
@@ -100,16 +100,16 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		double** temp = new double*[hei];
+		double** new_arr = new double*[hei];
 		for (int i = 0; i < hei; ++i)
-			temp[i] = new double[len];
+			new_arr[i] = new double[len];
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp[i][j] = arr[i][j] - obj.arr[i][j];
+				new_arr[i][j] = arr[i][j] - obj.arr[i][j];
 		for (int i = 0; i < N; ++i)
 			delete[] arr[i];
 		delete[] arr;
-		arr = temp;
+		arr = new_arr;
 		return *this;
 	}
 
@@ -120,20 +120,20 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		RealMatrix temp(hei, len);
+		RealMatrix new_obj(hei, len);
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp.arr[i][j] = arr[i][j] / obj.arr[i][j];
-		return temp;
+				new_obj.arr[i][j] = arr[i][j] / obj.arr[i][j];
+		return new_obj;
 	}
 
 	RealMatrix operator/(const double a)
 	{
-		RealMatrix temp(N, M);
+		RealMatrix new_obj(N, M);
 		for (int i = 0; i < N; ++i)
 			for (int j = 0; j < M; ++j)
-				temp.arr[i][j] = arr[i][j] / a;
-		return temp;
+				new_obj.arr[i][j] = arr[i][j] / a;
+		return new_obj;
 	}
 
 	RealMatrix operator/=(const RealMatrix& obj)
@@ -143,16 +143,16 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		double** temp = new double*[hei];
+		double** new_arr = new double*[hei];
 		for (int i = 0; i < hei; ++i)
-			temp[i] = new double[len];
+			new_arr[i] = new double[len];
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp[i][j] = arr[i][j] / obj.arr[i][j];
+				new_arr[i][j] = arr[i][j] / obj.arr[i][j];
 		for (int i = 0; i < N; ++i)
 			delete[] arr[i];
 		delete[] arr;
-		arr = temp;
+		arr = new_arr;
 		return *this;
 	}
 
@@ -163,20 +163,20 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		RealMatrix temp(hei, len);
+		RealMatrix new_obj(hei, len);
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp.arr[i][j] = arr[i][j] * obj.arr[i][j];
-		return temp;
+				new_obj.arr[i][j] = arr[i][j] * obj.arr[i][j];
+		return new_obj;
 	}
 
 	RealMatrix operator*(const double a)
 	{
-		RealMatrix temp(N, M);
+		RealMatrix new_obj(N, M);
 		for (int i = 0; i < N; ++i)
 			for (int j = 0; j < M; ++j)
-				temp.arr[i][j] = arr[i][j] * a;
-		return temp;
+				new_obj.arr[i][j] = arr[i][j] * a;
+		return new_obj;
 	}
 
 	RealMatrix operator*=(const RealMatrix& obj)
@@ -186,16 +186,16 @@ public:
 		else hei = obj.N;
 		if (M > obj.M) len = M;
 		else len = obj.M;
-		double** temp = new double*[hei];
+		double** new_arr = new double*[hei];
 		for (int i = 0; i < hei; ++i)
-			temp[i] = new double[len];
+			new_arr[i] = new double[len];
 		for (int i = 0; i < hei; ++i)
 			for (int j = 0; j < len; ++j)
-				temp[i][j] = arr[i][j] * obj.arr[i][j];
+				new_arr[i][j] = arr[i][j] * obj.arr[i][j];
 		for (int i = 0; i < N; ++i)
 			delete[] arr[i];
 		delete[] arr;
-		arr = temp;
+		arr = new_arr;
 		return *this;
 	}
 
@@ -279,14 +279,14 @@ public:
 
 	void norm_matrix()
 	{
-		double temp, norm = 0;
+		double counter, norm = 0;
 		for (int i = 0; i < N; i++)
 		{
-			temp = 0;
+			counter = 0;
 			for (int j = 0; j < M; j++)
-				temp += abs(arr[j][i]);
-			if (temp > norm)
-				norm = temp;
+				counter += abs(arr[j][i]);
+			if (counter > norm)
+				norm = counter;
 		}
 		cout << " Norma = " << norm << endl;
 	}
@@ -387,7 +387,7 @@ public:
 		return -1;
 	}
 
-	RealMatrix& back_matrix()
+	RealMatrix back_matrix()
 	{
 		double det = 0;
 		if (M == 2 && N == 2)
