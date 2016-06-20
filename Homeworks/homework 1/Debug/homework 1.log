@@ -1,0 +1,4 @@
+﻿  staff_matrix.cpp
+d:\учеба\eclipse\rep_cpp\itstep_cpp\homeworks\homework 1\staff_matrix.cpp(344): warning C4715: RealMatrix::is_unit: значение возвращается не при всех путях выполнения
+d:\учеба\eclipse\rep_cpp\itstep_cpp\homeworks\homework 1\staff_matrix.cpp(328): warning C4715: RealMatrix::is_diagonal: значение возвращается не при всех путях выполнения
+  homework 1.vcxproj -> D:\учеба\Eclipse\rep_cpp\itstep_cpp\Homeworks\Debug\homework 1.exe
