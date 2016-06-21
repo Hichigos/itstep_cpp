@@ -29,7 +29,7 @@ public:
 	{
 		if (index > len)
 		{
-			cout << "Err" << endl;
+			cerr << "Error:index > length!" << endl;
 			index = len;
 		}
 
@@ -59,7 +59,7 @@ public:
 	{
 		if (index > len)
 		{
-			cout << "Err" << endl;
+			cerr << "Error:index > length!" << endl;
 			index = len;
 		}
 
@@ -81,7 +81,7 @@ public:
 			len -= count;
 		}
 		else
-			cout << "Error: using index = size\n";
+			cerr << "Error: using index = size\n";
 	}
 
 	void append(char ch)
@@ -95,13 +95,13 @@ public:
 			insert(str2.str[i], len);
 	}
 
-	char* search_substring(char *str_)
+	char* search_substring(const char *str_)
 	{
 		if (strstr(str, str_) == nullptr) return "Substring not found";
 		else return strstr(str, str_);
 	}
 
-	char* search_symbol(char ch)
+	char* search_symbol(const char ch)
 	{
 		if (strchr(str, ch) == nullptr) return "Symbol not found";
 		else return strchr(str, ch);
