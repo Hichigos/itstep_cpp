@@ -156,8 +156,10 @@ public:
 
 	char& operator[](int index)
 	{
-		if (abs(index >= (len + 1)))index = len + 1;
-		if (index < 0)index = len + index;
+		if (abs(index >= (len + 1)))
+			index = len + 1;
+		if (index < 0)
+			index = len + index;
 		return str[index];
 	}
 
