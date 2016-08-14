@@ -188,7 +188,10 @@ ostream& operator<<(ostream& out, const String& obj)
 
 istream& operator>>(istream& in, String& obj)
 {
-	in >> obj.str;
+	char* buff=new char[256];
+	in >> buff;
+	delete obj.str;
+	obj.str = buff;
 	return in;
 }
 
@@ -222,8 +225,8 @@ int main()
 		cout << obj1;
 		break;
 	case 's':
-		cin >> obj1;
-		cout << obj1;
+		cin >> obj2;
+		cout << obj2;
 		break;
 	case 'd':
 		cout << obj1;
